@@ -20,14 +20,6 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="assets/css/color.css">
-
-    <style>
-
-.modal {
-  z-index: 9999;
-}
-
-    </style>
 </head>
 
 <body>
@@ -46,22 +38,39 @@
             </div><!-- Topbar -->
             <div class="logo-menu-wrap d-flex flex-wrap justify-content-between w-100">
                 <div class="logo position-relative thm-layer opc7 back-blend-multiply thm-bg"
-                    style="background-image: url(assets/images/resources/mosq.png);">
+                    style="background-image: url(assets/images/pattern-bg.jpg);">
                     <h1 class="mb-0"><a href="index.html" title="Home"><img class="img-fluid"
                                 src="assets/images/logo.png" alt="Logo" srcset="assets/images/retina-logo.png"></a></h1>
                 </div><!-- Logo -->
                 <nav class="d-flex flex-wrap align-items-center justify-content-center">
                     <div class="header-left">
                         <ul class="mb-0 list-unstyled d-inline-flex">
-                            <li><a href="index.html" title="">Home</a></li>
-                            <li><a href="mosque.html" title="">Mosques</a></li>
-                            <li><a href="calendrier.html" title="">calendrier</a></li>
+                            <li><a href="admin_mosque.html" title="">Mosques</a></li>
+                            <li><a href="admin_events.html" title="">Evenements</a></li>
                         </ul>
                     </div>
-                </nav> 
+                </nav>
             </div><!-- Logo Menu Wrap -->
         </header><!-- Header -->
-       <!-- Sticky Menu -->
+        <div class="sticky-menu">
+            <div class="container">
+                <div class="sticky-menu-inner d-flex flex-wrap align-items-center justify-content-between w-100">
+                    <div class="logo">
+                        <h1 class="mb-0"><a href="index.html" title="Home"><img class="img-fluid"
+                                    src="assets/images/logo3.png" alt="Logo"
+                                    srcset="assets/images/retina-logo3.png"></a></h1>
+                    </div><!-- Logo -->
+                    <nav class="d-flex flex-wrap align-items-center justify-content-center">
+                        <div class="header-left">
+                            <ul class="mb-0 list-unstyled d-inline-flex">
+                                <li><a href="admin_mosque.html" title="">Mosques</a></li>
+                                <li><a href="admin_events.html" title="">Evenements</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div><!-- Sticky Menu -->
         <div class="rspn-hdr">
             <div class="lg-mn">
                 <div class="logo"><a href="index.html" title="Home"><img src="assets/images/logo3.png" alt="Logo"></a>
@@ -70,21 +79,19 @@
             </div>
             <div class="rsnp-mnu">
                 <span class="rspn-mnu-cls"><i class="fa fa-times"></i></span>
-                <ul class="mb-0 list-unstyled w-100">
-                    <li><a href="index.html" title="">Home</a></li>
-                    <li><a href="mosque.html" title="">Mosques</a></li>
-                    <li><a href="calendrier.html" title="">calendrier</a></li>
+                <ul class="mb-0 list-unstyled d-inline-flex">
+                    <li><a href="admin_mosque.html" title="">Mosques</a></li>
+                    <li><a href="admin_events.html" title="">Evenements</a></li>
                 </ul>
             </div>
         </div><!-- Responsive Header -->
         <section>
             <div class="w-100 pt-80 black-layer pb-70 opc65 position-relative">
-                <div class="fixed-bg" style="background-image: url(assets/images/resources/mosq.png);"></div>
+                <div class="fixed-bg" style="background-image: url(assets/images/page-title-bg.jpg);"></div>
                 <div class="container">
                     <div class="page-title-wrap text-center w-100">
                         <div class="page-title-inner d-inline-block">
-                            <h1 class="mb-0">Upcoming Events</h1>
-                            
+                            <h1 class="mb-0">Ajouter Mosqué</h1>
                         </div>
                     </div><!-- Page Title Wrap -->
                 </div>
@@ -95,33 +102,53 @@
                 <img class="sec-botm-rgt-mckp img-fluid position-absolute" src="assets/images/sec-botm-mckp.png"
                     alt="Sec Bottom Mockup">
                 <div class="container">
-                    <div class="event-wrap w-100">
+                    <form>
                         <div class="row">
-                            <div id="calendar"></div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="name">Nom Mosqué: </label>
+                                    <input type="email" class="form-control" id="name" aria-describedby="emailHelp"
+                                        placeholder="Nom Mosqué">
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="Adresse">Adresse: </label>
+                                    <input type="email" class="form-control" id="adresse" aria-describedby="emailHelp"
+                                        placeholder="Adresse">
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <h5 class="modal-title" id="eventModalLabel"></h5>
-                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                  </button>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="longitude">longitude</label>
+                                    <input type="email" class="form-control" id="longitude" aria-describedby="emailHelp"
+                                        placeholder="longitude">
                                 </div>
-                                <div class="modal-body">
-                                  <p>Start:</p>
-                                  <p>End:</p>
-                                  <p>Type:</p>
-                                  <p>Description:</p>
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                </div>
-                              </div>
                             </div>
-                          </div>
-                    </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="latitude">latitude</label>
+                                    <input type="email" class="form-control" id="latitude" aria-describedby="emailHelp"
+                                        placeholder="latitude">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <label for="">Ville</label>
+                                    <select class="form-control form-control-sm" id="ville_select" style="width: 49%;">
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" id="addmosque" class="btn btn-primary mt-3">Submit</button>
+                    </form>
                 </div>
             </div>
         </section>
@@ -229,7 +256,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="scripts/moment-hijri.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
-    <script src="scripts/calendrier.js"></script>
+    <script src="scripts/adminmosquee.js"></script>
 </body>
 
 </html>

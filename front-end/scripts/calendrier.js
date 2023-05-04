@@ -9,33 +9,60 @@ $(document).ready(function () {
                 url: 'http://localhost:3000/events/allEvents/',
                 type: 'GET',
                 success: function(response) {
-                    console.log(response);
-                  const events = response.map(event => ({
-                    title: event.nom_events,
-                    start: event.start_date,
-                    end: event.end_date
-                  }));
-                  $('#calendar').fullCalendar('addEventSource', events);
+                  $.ajax({
+                    url: 'http://localhost:3000/holidays/get_all_holidays/',
+                    type: 'GET',
+                    success: function(holidays) {
+                      const holidayEvents = holidays.map(holiday => ({
+                        title: holiday.nom_holiday,
+                        start: holiday.start_date,
+                        end: holiday.start_date,
+                        type:"holiday",
+                        description : holiday.description
+                      }));
+                      const events = response.map(event => ({
+                        title: event.nom_events,
+                        start: event.start_date,
+                        end: event.end_date,
+                        type:"event",
+                        description : event.description
+                      }));
+                      const allEvents = events.concat(holidayEvents);
+                      $('#calendar').fullCalendar('addEventSource', allEvents);
+                    },
+                    error: function(error) {
+                      console.error(error);
+                    }
+                  });
                 },
                 error: function(error) {
                   console.error(error);
                 }
               });
-
-
-
+              
             $('#calendar').fullCalendar({
                 header: {
                     left: "prev,next today",
                     center: "title",
                     right: "month,agendaWeek,agendaDay",
                 },
+                eventRender: function(event, element) {
+                  if (event.type === "holiday") {
+                    element.css("background-color", "#7FFF00");
+                  }
+                },
                 dayClick: function (date, jsEvent, view) {
                     alert(date.format());
                 },
-                eventClick: function(event) {
-                    // Handle the event click here
-                    alert('Event: ' + event.title);
+                eventClick: function(event, jsEvent, view) {
+                  $('#eventModal').modal('show');
+                  $('#eventModal .modal-title').text(event.title);
+                  $('#eventModal .modal-body').html(
+                    '<p>Start: ' + moment(event.start).format('MMM Do YYYY') + '</p>' +
+                    '<p>End: ' + (event.type === "holiday" ? moment(event.start).format('MMM Do YYYY') : moment(event.end).format('MMM Do YYYY')) + '</p>' +
+                    '<p>Type: ' + event.type + '</p>' +
+                    '<p>Description: ' + (event.type === "holiday" ? event.description : event.description) + '</p>'
+                  );
                 },
                 async dayRender(date, cell) {
                     var month = date.month();

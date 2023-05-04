@@ -35,7 +35,7 @@
                     <li><i class="thm-clr flaticon-sun"></i>Sunrise At: <span class="thm-clr">5:05am</span></li>
                     <li><i class="thm-clr flaticon-moon"></i>Sunset At: <span class="thm-clr">7:14pm</span></li>
                 </ul>
-                
+
             </div><!-- Topbar -->
             <div class="logo-menu-wrap d-flex flex-wrap justify-content-between w-100">
                 <div class="logo position-relative thm-layer opc7 back-blend-multiply thm-bg"
@@ -117,12 +117,31 @@
                                 <tr>
                                     <th>Nom mosquée</th>
                                     <th>Adresse</th>
-                                    <th>longitude</th>
-                                    <th>latitude</th>
                                     <th>Ville</th>
+                                    <th>localisation geo</th>
                                 </tr>
                             </thead>
                         </table>
+
+                        <!-- Modal for displaying the Google Map -->
+                        <div class="modal fade" id="map-modal" tabindex="-1" role="dialog"
+                            aria-labelledby="map-modal-label" aria-hidden="true">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="map-modal-label">Map</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div id="map" style="height: 400px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
@@ -229,6 +248,7 @@
     <script src="assets/js/musicplayer-min.js"></script>
     <script src="assets/js/custom-scripts.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA3MV4OCVVwU51DEHNqREtMmouwRPz0mDQ"></script>
     <script src="scripts/mosquee.js"></script>
 </body>
 
