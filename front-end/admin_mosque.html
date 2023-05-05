@@ -8,6 +8,7 @@
     <meta name="keywords" content="" />
     <link rel="icon" href="assets/images/favicon.png" sizes="35x35" type="image/png">
     <title>Maktab - The Islamic Center HTML5 Template</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
     <link rel="stylesheet" href="assets/css/all.min.css">
     <link rel="stylesheet" href="assets/css/flaticon.css">
@@ -149,6 +150,19 @@
                         </div>
                         <button type="button" id="addmosque" class="btn btn-primary mt-3">Submit</button>
                     </form>
+                    <br>
+                    <h1>Liste des mosquées</h1>
+                    <table id="mosquee" class="table table-striped table-bordered" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Nom mosquée</th>
+                                <th>Adresse</th>
+                                <th>Ville</th>
+                                <th>longitude</th>
+                                <th>latitude</th>
+                            </tr>
+                        </thead>
+                    </table>
                 </div>
             </div>
         </section>
@@ -256,6 +270,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="scripts/moment-hijri.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="scripts/adminmosquee.js"></script>
 </body>
 

@@ -4,6 +4,7 @@ const villeRouter = require('./routes/villeRouter');
 const eventsRouter = require('./routes/eventsRouter');
 const mosqueeRouter = require('./routes/mosqueeRouter');
 const holidayRouter = require('./routes/holidayRouter');
+const usersRouter = require('./routes/usersRouter');
 const cors = require('cors');
 const updatePrayerTimes = require('./updatePrayerTimes');
 const bodyParser = require('body-parser');
@@ -24,6 +25,7 @@ updatePrayerTimes()
     app.use('/events', eventsRouter);
     app.use('/mosquee', mosqueeRouter);
     app.use('/holidays', holidayRouter);
+    app.use('/users', usersRouter);
 
     app.listen(PORT, () => {
       console.log(`Server listening on port ${PORT}`);

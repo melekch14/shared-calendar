@@ -109,6 +109,10 @@
 
 strong {font-weight: 600;}
 
+.modal {
+  z-index: 9999;
+}
+
 /*=== General Styling ===*/
 body, 
 html {overflow-x: hidden;}
