@@ -33,8 +33,8 @@
         <header class="stick style1 w-100">
             <div class="topbar bg-color1 d-flex flex-wrap justify-content-center w-100">
                 <ul class="topbar-info-list mb-0 list-unstyled d-inline-flex">
-                    <li><i class="thm-clr flaticon-sun"></i>Sunrise At: <span class="thm-clr">5:05am</span></li>
-                    <li><i class="thm-clr flaticon-moon"></i>Sunset At: <span class="thm-clr">7:14pm</span></li>
+                    <li><i class="thm-clr flaticon-sun"></i>Sunrise At: <span class="thm-clr" id="chourouk">5:05am</span></li>
+                    <li><i class="thm-clr flaticon-moon"></i>Sunset At: <span class="thm-clr" id="ghouroub">7:14pm</span></li>
                 </ul>
             </div><!-- Topbar -->
             <div class="logo-menu-wrap d-flex flex-wrap justify-content-between w-100">
@@ -46,9 +46,13 @@
                 <nav class="d-flex flex-wrap align-items-center justify-content-center">
                     <div class="header-left">
                         <ul class="mb-0 list-unstyled d-inline-flex">
-                            <li><a href="admin_mosque.html" title="">Mosques</a></li>
+                            <li><a href="admin_mosque.html" title="">Mosquées</a></li>
                             <li><a href="admin_events.html" title="">Evenements</a></li>
+                            <li><a href="admin_holidays.html" title="">Fêtes</a></li>
                         </ul>
+                    </div>
+                    <div class="header-right">
+                        <button class="thm-btn thm-bg" title="" id="out">Logout<span></span><span></span><span></span><span></span></button>
                     </div>
                 </nav>
             </div><!-- Logo Menu Wrap -->
@@ -64,8 +68,9 @@
                     <nav class="d-flex flex-wrap align-items-center justify-content-center">
                         <div class="header-left">
                             <ul class="mb-0 list-unstyled d-inline-flex">
-                                <li><a href="admin_mosque.html" title="">Mosques</a></li>
+                                <li><a href="admin_mosque.html" title="">Mosquées</a></li>
                                 <li><a href="admin_events.html" title="">Evenements</a></li>
+                                <li><a href="admin_holidays.html" title="">Fêtes</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -81,18 +86,19 @@
             <div class="rsnp-mnu">
                 <span class="rspn-mnu-cls"><i class="fa fa-times"></i></span>
                 <ul class="mb-0 list-unstyled d-inline-flex">
-                    <li><a href="admin_mosque.html" title="">Mosques</a></li>
+                    <li><a href="admin_mosque.html" title="">Mosquées</a></li>
                     <li><a href="admin_events.html" title="">Evenements</a></li>
+                    <li><a href="admin_holidays.html" title="">Fêtes</a></li>
                 </ul>
             </div>
         </div><!-- Responsive Header -->
         <section>
             <div class="w-100 pt-80 black-layer pb-70 opc65 position-relative">
-                <div class="fixed-bg" style="background-image: url(assets/images/page-title-bg.jpg);"></div>
+                <div class="fixed-bg" style="background-image: url(assets/images/mosq1.jpg);"></div>
                 <div class="container">
                     <div class="page-title-wrap text-center w-100">
                         <div class="page-title-inner d-inline-block">
-                            <h1 class="mb-0">Ajouter Mosqué</h1>
+                            <h1 class="mb-0">Mosquées</h1>
                         </div>
                     </div><!-- Page Title Wrap -->
                 </div>
@@ -104,6 +110,7 @@
                     alt="Sec Bottom Mockup">
                 <div class="container">
                     <form>
+                        <input type="hidden" value="0" id="idmosque">
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
@@ -148,7 +155,8 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="button" id="addmosque" class="btn btn-primary mt-3">Submit</button>
+                        <button type="button" id="addmosque" class="btn btn-primary mt-3">Enregistrer</button>
+                        <button type="button" id="clearall" class="btn btn-warning mt-3">Vider</button>
                     </form>
                     <br>
                     <h1>Liste des mosquées</h1>
@@ -160,6 +168,8 @@
                                 <th>Ville</th>
                                 <th>longitude</th>
                                 <th>latitude</th>
+                                <th>Modifier</th>
+                                <th>Supprimer</th>
                             </tr>
                         </thead>
                     </table>
@@ -173,84 +183,24 @@
                 <div class="container">
                     <div class="footer-data w-100">
                         <div class="row">
-                            <div class="col-md-12 col-sm-12 col-lg-3">
+                            <div class="col-md-12 col-sm-12">
                                 <div class="widget w-100">
                                     <div class="logo">
                                         <h1 class="mb-0"><a href="index.html" title="Home"><img class="img-fluid"
                                                     src="assets/images/logo2.png" alt="Logo"
                                                     srcset="assets/images/retina-logo2.png"></a></h1>
                                     </div>
-                                    <p class="mb-0">Lorem ipsum dolor sit amet, coteudtu sicing elit, sed do eiusmod
-                                        tempor inc dntut labore et adipi.</p>
+                                    <p class="mb-0">Notre site Web s'efforce d'offrir des services publics aux musulmans tels que les heures de prière, l'emplacement de la mosquée et différents événements</p>
                                 </div>
                             </div>
-                            <div class="col-md-12 col-sm-12 col-lg-9">
-                                <div class="row justify-content-between">
-                                    <div class="col-md-6 col-sm-6 col-lg-6">
-                                        <div class="row">
-                                            <div class="col-md-6 col-sm-6 col-lg-6">
-                                                <div class="widget w-100">
-                                                    <h4 class="widget-title">Information</h4>
-                                                    <ul class="mb-0 list-unstyled w-100">
-                                                        <li><a href="online-courses.html" title="">Online Courses</a>
-                                                        </li>
-                                                        <li><a href="audio-listening.html" title="">Audio Listening</a>
-                                                        </li>
-                                                        <li><a href="blog.html" title="">Our Blog</a></li>
-                                                        <li><a href="events.html" title="">Our Events</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-sm-6 col-lg-6">
-                                                <div class="widget w-100">
-                                                    <h4 class="widget-title">Contact Info</h4>
-                                                    <ul class="cont-info-list2 mb-0 list-unstyled w-100">
-                                                        <li><i class="thm-clr">P:</i>341 22 245 225</li>
-                                                        <li><i class="thm-clr">E:</i><a href="javascript:void(0);"
-                                                                title="">username@domain.com</a></li>
-                                                        <li>425 1st Street, San Francisco, California, USA</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-5 col-sm-6 col-lg-5">
-                                        <h4 class="widget-title">Let Us Help You</h4>
-                                        <div class="row">
-                                            <div class="col-md-6 col-sm-6 col-lg-6">
-                                                <div class="widget w-100">
-                                                    <ul class="mb-0 list-unstyled w-100">
-                                                        <li><a href="about.html" title="">About Maktab</a></li>
-                                                        <li><a href="urgent-donation.html" title="">Urgent Donation</a>
-                                                        </li>
-                                                        <li><a href="services.html" title="">Our Services</a></li>
-                                                        <li><a href="sermons.html" title="">Our Sermons</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-sm-6 col-lg-6">
-                                                <div class="widget w-100">
-                                                    <ul class="mb-0 list-unstyled w-100">
-                                                        <li><a href="products.html" title="">Our Products</a></li>
-                                                        <li><a href="scholar-style1.html" title="">Our Scholars</a></li>
-                                                        <li><a href="contact.html" title="">Contact Us</a></li>
-                                                        <li><a href="gallery.html" title="">Maktab Gallery</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div><!-- Footer Data -->
                 </div>
             </div>
         </footer><!-- Footer -->
         <div class="bottom-bar dark-bg2 text-center w-100">
-            <p class="mb-0"><a href="index.html" title="Home">Maktab</a> - Copyright 2020. Design by <a
-                    href="https://themeforest.net/user/nauthemes/portfolio" title="Nauthemes"
-                    target="_blank">Nauthemes</a></p>
+            <p class="mb-0"><a href="index.html" title="Home">Ryhab Arafet</a> - Copyright 2023.</p>
         </div><!-- Bottom Bar -->
     </main><!-- Main Wrapper -->
 
@@ -271,6 +221,7 @@
     <script src="scripts/moment-hijri.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="scripts/jquery.toaster.js"></script>
     <script src="scripts/adminmosquee.js"></script>
 </body>
 

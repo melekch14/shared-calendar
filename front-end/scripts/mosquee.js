@@ -47,7 +47,7 @@ $(document).ready(function () {
 
 
     updateTimes(3)
-    /************* functions ********************** */
+    
 
     async function updateTimes(ville) {
         try {
@@ -64,10 +64,5 @@ $(document).ready(function () {
             throw error;
         }
     }
-
-
-
-
-
 
 });
