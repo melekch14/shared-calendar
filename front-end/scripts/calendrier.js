@@ -25,7 +25,8 @@ $(document).ready(function () {
             start: event.start_date,
             end: event.end_date,
             type: "event",
-            description: event.description
+            description: event.description,
+			ville: event.nom_ville
           }));
           const allEvents = events.concat(holidayEvents);
           $('#calendar').fullCalendar('addEventSource', allEvents);
@@ -61,7 +62,8 @@ $(document).ready(function () {
         '<p>Start: ' + moment(event.start).format('MMM Do YYYY') + '</p>' +
         '<p>End: ' + (event.type === "holiday" ? moment(event.start).format('MMM Do YYYY') : moment(event.end).format('MMM Do YYYY')) + '</p>' +
         '<p>Type: ' + event.type + '</p>' +
-        '<p>Description: ' + (event.type === "holiday" ? event.description : event.description) + '</p>'
+        '<p>Description: ' + (event.type === "holiday" ? event.description : event.description) + '</p>' +
+        (event.type === "event" ? '<p>Ville: ' + event.ville + '</p>' : '')
       );
     },
     async dayRender(date, cell) {

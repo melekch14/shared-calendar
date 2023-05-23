@@ -4,7 +4,7 @@ const { QueryTypes } = require('sequelize');
 const getAllEvents = async (req, res) => {
   try {
     const event = await sequelize.query(
-      'SELECT * FROM events',
+      'SELECT e.*,v.nom_ville FROM events e join ville v on e.id_ville = v.id_ville',
       { type: QueryTypes.SELECT }
     );
     res.json(event);
